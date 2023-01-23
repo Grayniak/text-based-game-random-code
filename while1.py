@@ -12,3 +12,4 @@ while ("inv" in ans):
     if not (ans == "close"):
       print("\nBack Right Pocket = " + BRpocket + "\nBack Left Pocket = " + BLpocket + "\nFront Left Pocket = " + FLpocket + "\nFront Right Pocket = " + FRpocket)
       ans = input('When you want to close the inventory type "close" to go back to the game.\n\n')
+#subprocess(File location "C:\users\jimothy\etc\etc")

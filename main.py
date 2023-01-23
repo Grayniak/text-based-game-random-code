@@ -2,6 +2,7 @@
 import os
 import time
 import random
+import subprocess
 where = dict = {1: '1', 2: '0'}
 ans = "0" #answer for all imputs
 dresrv = "0" #Dresser story switch
@@ -16,15 +17,16 @@ invans = "0" #Var to close inv
 GetNewsp = "0" #Has newspaper been taken
 splinterIn = "0" #Has splinter been given
 dresrlock = "0" #Has dresser button been pressed
+subprocess.file(while1.py)
 def inv():
   global FRpocket
   global BLpocket
   global FLpocket
   global ans
-  while (ans == "inv"):
+  while not ("close" in ans):
     if not (ans == "close"):
       print("\nBack Right Pocket = " + BRpocket + "\nBack Left Pocket = " + BLpocket + "\nFront Left Pocket = " + FLpocket + "\nFront Right Pocket = " + FRpocket)
-      ans = input('When you want to close the inventory type "close" to go back to the game.\n\n')
+    ans = input('When you want to close the inventory type "close" to go back to the game.\n\n')
 
 def dresser():
   global dresrv
@@ -37,7 +39,7 @@ def dresser():
     print("\nYou walk over to the dresser. It looks like it was made in the 1950's and it has an aged cream color. It has 7 drawers in it, the top being the smallest. You touch the drawer, admiring its antiquity, and as you were running your hand along the side you get a splinter. Now it hurts to touch anything.")
     splinterIn = "yes"
     dresrv = "1"
-    ans = input("\nWhat do you do?\n1. Try to get the splinter out\n2. Walk elsewhere\n3. Sit back down in the chair you awakened in\n4. Stay and keep admiring the dresser\n\n")
+    ans = input("\nWhat do you do?\n\n")
   else:
     ans = input("What do you do?\n1. Walk elsewhere\n2. Stay and keep admiring the dresser\n3. Try to open the drawers\n")
   if (splinterIn == "yes"):
@@ -148,7 +150,7 @@ def desk():
     if (ans == "1"):
       if (GetNewsp == "0"):
         print("You carefully tear out the intact missing person sections out of the two newspapers.")
-        input("\nWhat pocket do you want to put this in?\n1. Front right\n2. Front left\n3. Back right\n4. Back left\n5. Nevermind")
+        input("\nWhat pocket do you want to put this in?\n (Front right, Front left, Back right, Back left, Nevermind")
         if (ans == "1"):
           FRpocket = "Missing persons paper"
           GetNewsp = "1"
@@ -246,6 +248,9 @@ def Startup():
     print("m")
 Startup()
 ans = input("\nWhat do you do?\n")
+if ("inv" in ans):
+  inv()
+  ans =input()
 if ("go" and "dresser" in ans):
   dresser()
 if ("go" and "desk" in ans):
